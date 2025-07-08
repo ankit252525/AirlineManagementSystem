@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alaska Airlines - Welcome</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #0073e6;
+      color: white;
+    }
+
+    .navbar h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      margin: 0 15px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .navbar ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Welcome Section */
+    .background {
+      background-image: url('https://news.alaskaair.com/wp-content/uploads/2022/04/200213_BHM_WHM_0446-1.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .background h1 {
+      font-size: 3.5rem;
+      font-family: 'Cursive', sans-serif;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .background h1 span {
+      color: lightcoral; /* Light red color for Alaska Airlines */
+    }
+
+    .background h2 {
+      font-size: 1.5rem;
+      font-family: 'Cursive', sans-serif;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      margin-bottom: 30px;
+    }
+
+    .cta-button {
+      background-color: lightcoral;
+      color: white;
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-family: Arial, sans-serif;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      background-color: #e60000;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Discount Section */
+    #discountSection {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-top: 2px solid #ddd;
+      text-align: center;
+    }
+
+    #discountSection h3 {
+      margin-bottom: 10px;
+      color: #0073e6;
+    }
+
+    #discountSection ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #discountSection ul li {
+      margin: 5px 0;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Welcome Section -->
+  <div class="background">
+    <h1>Welcome to <span>Alaska Airlines</span></h1>
+    <h2>Trusted by millions for safe and comfortable travel.</h2>
+    <a href="signin.html" class="cta-button">Book Your Flight Now</a>
+  </div>
+
+  <!-- Discount Section -->
+  <div id="discountSection">
+    <h3>Special Discounts for You!</h3>
+    <ul>
+      <li>📢 20% off on all domestic flights.</li>
+      <li>✈️ Book two tickets and get the third one free!</li>
+      <li>🌍 Exclusive offers for international travelers.</li>
+    </ul>
+  </div>
+
+</body>
+</html>

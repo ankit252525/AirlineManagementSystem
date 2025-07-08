@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alaska Airlines - Services</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ddd;
+      background-color: #fff;
+      padding: 10px;
+      justify-content: center;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: 1px solid #ddd;
+      border-bottom: none;
+      margin: 0 5px;
+      background-color: #f9f9f9;
+    }
+
+    .tab.active {
+      background-color: #0073e6;
+      color: #fff;
+      border-color: #0073e6;
+    }
+
+    .content {
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .global-image {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .global-image img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="serviceSection">
+    <div class="tabs">
+      <div class="tab active" onclick="showTabContent('flightBooking')">Flight Booking</div>
+      <div class="tab" onclick="showTabContent('inFlightServices')">In-flight Services</div>
+      <div class="tab" onclick="showTabContent('loyaltyProgram')">Loyalty Program</div>
+      <div class="tab" onclick="showTabContent('baggageServices')">Baggage Services</div>
+      <div class="tab" onclick="showTabContent('travelInsurance')">Travel Insurance</div>
+      <div class="tab" onclick="showTabContent('loungeAccess')">Lounge Access</div>
+    </div>
+
+    <div id="tabContent" class="content">
+      <!-- Default Content -->
+      <h2>Flight Booking</h2>
+      <ul>
+        <li>One-way / Round-trip tickets</li>
+        <li>Multi-city booking</li>
+        <li>Web Check-in (24 hours before departure)</li>
+        <li>Mobile boarding pass</li>
+        <li>Real-time flight tracking</li>
+      </ul>
+    </div>
+
+    <!-- Global Image Section -->
+    <div class="global-image">
+        <img src="https://www.retently.com/wp-content/uploads/2018/08/Airline-satisfaction-cover-1.png" alt="Airline Satisfaction Cover">
+    </div>
+  </div>
+
+  <script>
+    function showTabContent(tab) {
+      const content = {
+        flightBooking: `
+          <h2>Flight Booking</h2>
+          <ul>
+            <li>One-way / Round-trip tickets</li>
+            <li>Multi-city booking</li>
+            <li>Web Check-in (24 hours before departure)</li>
+            <li>Mobile boarding pass</li>
+            <li>Real-time flight tracking</li>
+          </ul>
+        `,
+        inFlightServices: `
+          <h2>In-flight Services</h2>
+          <ul>
+            <li>Free Wi-Fi</li>
+            <li>Entertainment (movies, music, games)</li>
+            <li>Food & Beverages (Veg / Non-Veg / Special Meals)</li>
+          </ul>
+        `,
+        loyaltyProgram: `
+          <h2>Loyalty Program</h2>
+          <ul>
+            <li>Mileage Plan</li>
+            <li>Earn and redeem miles</li>
+            <li>Tier upgrades (Silver, Gold, etc.)</li>
+          </ul>
+        `,
+        baggageServices: `
+          <h2>Baggage Services</h2>
+          <ul>
+            <li>Baggage allowance details</li>
+            <li>Lost & Found support</li>
+          </ul>
+        `,
+        travelInsurance: `
+          <h2>Travel Insurance</h2>
+          <ul>
+            <li>Trip cancellation insurance</li>
+            <li>Medical emergency cover</li>
+          </ul>
+        `,
+        loungeAccess: `
+          <h2>Airport Lounge Access</h2>
+          <ul>
+            <li>Premium passengers</li>
+            <li>Free snacks, drinks, Wi-Fi</li>
+          </ul>
+        `
+      };
+
+      document.querySelectorAll('.tab').forEach(tabElement => {
+        tabElement.classList.remove('active');
+      });
+
+      event.target.classList.add('active');
+      document.getElementById('tabContent').innerHTML = content[tab];
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://images.pexels.com/photos/358220/pexels-photo-358220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed; /* Background image */ 
+    background-size: cover;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styling */
+header {
+    background-color: rgba(0, 0, 102, 0.9);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+header h1 {
+    margin: 0;
+    font-size: 3.5rem; /* Font size increase */
+}
+header h1 span {
+    color: red;
+    font-family: 'Brush Script MT', cursive; /* Cursive font for 'Alaska' */
+}
+header .auth-icons {
+    display: flex;
+    gap: 1rem;
+}
+header .auth-icons a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+header .auth-icons a:hover {
+    color: #ffcc00;
+}
+
+#profile-section {
+    display: flex;
+    align-items: center;
+}
+#profile-section img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+#profile-section p {
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    color: white;
+}
+
+/* Main Content Styling */
+main {
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    flex: 1; /* Ensures the main content stretches to fill the available space */
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+form h2 {
+    margin-bottom: 1rem;
+}
+label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+input {
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+button {
+    padding: 0.8rem;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+button:hover {
+    background: linear-gradient(to right, #2575fc, #6a11cb);
+}
+
+
+/* Additional Sections Styling */
+#available-flights, #payment-section, #confirmation-section, #check-in-form, #flight-status-section {
+    display: none;
+    margin-top: 2rem;
+}
+#available-flights h2, #payment-section h2, #confirmation-section h2, #check-in-form h2, #flight-status-section h2 {
+    font-size: 1.5rem;
+    color: #0033cc;
+    margin-bottom: 1rem;
+}
+
+
+
+
+
+
+
+/* Destinations Section */
+.destination-slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.destination-slide {
+    display: none;
+    width: 100%;
+    transition: all 1s ease;
+}
+.destination-slide img {
+    width: 100%;
+    height: auto;
+}
+.destination-slide.active {
+    display: block;
+}
+.destination-info {
+    padding: 1rem;
+    text-align: center;
+}
+.destination-info p {
+    margin: 0;
+    font-weight: bold;
+}
+.destination-info button {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.destination-info button:hover {
+    background: linear-gradient(to right, #2575fc, #6a11cb);
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 0.5rem; /* Compact padding */
+    background-color: #001f3f;
+    color: white;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+/* Additional Styling for Forms */
+#auth-forms {
+    margin-bottom: 2rem;
+}
+#auth-forms form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+#auth-forms form h2 {
+    margin-bottom: 1rem;
+}
+#sign-up-form {
+    display: flex;
+    flex-direction: column;
+}
+#sign-up-form label,
+#sign-up-form input {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+#sign-up-form button {
+    align-self: flex-start;
+}
