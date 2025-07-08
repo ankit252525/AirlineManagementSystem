@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alaska Airline</title>
+    <link rel="stylesheet" href="airline.css">
+    <script src="airline.js" defer></script>
+    <script src="index.js" defer></script>
+    <script src="booking.js" defer></script>
+    <!-- Add this in the <head> of your existing HTML -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn-charming {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            border: none;
+            color: white;
+        }
+        .btn-charming:hover {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+        }
+        .destination-slider {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .destination-slide {
+            display: none;
+            width: 100%;
+            transition: all 1s ease;
+        }
+        .destination-slide img {
+            width: 100%;
+            height: auto;
+        }
+        .destination-slide.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="bg-primary text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1><span>Alaska</span> Airline</h1>
+            <div class="auth-icons">
+                <nav class="d-flex align-items-center">
+                    <a href="home.html" class="btn btn-charming mx-1">🏠 Home</a>  
+                    <a href="about.html" class="btn btn-charming mx-1">📄 About</a> 
+
+                    <a href="services.html" class="btn btn-charming mx-1">🛫 Services</a>  
+                    <a href="#" class="btn btn-charming mx-1" data-bs-toggle="modal" data-bs-target="#contactModal">📞 Contact</a> 
+
+<!-- Contact Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #f8f9fa; color: #000;"> <!-- Set a light background and dark text -->
+            <!-- Modal Header -->
+            <div class="modal-header" style="background-color: #007bff; color: #fff;"> <!-- Blue header with white text -->
+                <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1);"></button> <!-- Ensures close button is visible -->
+            </div>
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <p>If you have any questions, feel free to contact us using the following details:</p>
+                <ul class="list-unstyled">
+                    <li><strong>Phone:</strong> +91-9876543210</li>
+                    <li><strong>Email:</strong> alaska.airline@gmail.com</li>
+                    <li><strong>Address:</strong> 123 Connaught Place, New Delhi, India</li>
+                </ul>
+            </div>
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+                    <a href="#" class="btn btn-charming mx-1">📋 My Bookings</a> 
+                    
+                <a href="#" id="sign-in" class="btn btn-charming">Sign In</a>
+                <a href="#" id="profile-icon-link" class="btn btn-charming" style="display: none;">Profile</a>
+                <a href="#" id="sign-up" class="btn btn-charming">Sign Up</a>
+                <div id="profile-section" style="display: none; text-align: center;">
+                    <img src="https://www.shutterstock.com/shutterstock/photos/542759665/display_1500/stock-vector-man-character-face-avatar-in-glasses-modern-colorful-style-male-portrait-vector-cartoon-542759665.jpg" 
+                         id="profile-icon" 
+                         style="width: 40px; height: 40px; border-radius: 50%;" 
+                         alt="Profile Icon">
+                    <p id="welcome-message" style="margin: 5px 0 0; font-size: 12px; color: #333;">Welcome</p>
+                    <!-- Logout Button -->
+                    <a href="#" id="logout-btn" class="btn btn-charming mx-1">🚪 Logout</a>
+                    
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Main Content Section -->
+    <main class="py-4">
+        <div class="container">
+            <!-- User Authentication Forms -->
+            <div id="auth-forms">
+                <form id="sign-in-form" class="mb-4" style="display: none;">
+                    <h2>Sign In</h2>
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img src="https://www.shutterstock.com/shutterstock/photos/542759665/display_1500/stock-vector-man-character-face-avatar-in-glasses-modern-colorful-style-male-portrait-vector-cartoon-542759665.jpg" 
+                             alt="User Avatar" 
+                             style="width: 120px; height: 120px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                      </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password:</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-charming">Sign In</button>
+                </form>
+                <form id="sign-up-form" class="mb-4" style="display: none;">
+
+                    <h2>Sign Up</h2> 
+                       
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name:</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="signup-email" class="form-label">Email:</label>
+                        <input type="email" id="signup-email" name="signup-email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address:</label>
+                        <input type="text" id="address" name="address" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pincode" class="form-label">Pincode:</label>
+                        <input type="text" id="pincode" name="pincode" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="signup-password" class="form-label">Password:</label>
+                        <input type="password" id="signup-password" name="signup-password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-charming">Sign Up</button>
+                </form>
+            </div>
+<!-- Help Button -->
+<button id="helpBtn" style="position: absolute; top: 10px; right: 10px;" onclick="showHelp()">Help</button>
+
+<!-- Modal for Help Information -->
+<div id="helpModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+  <div>
+    <h3>Need Help 🛠️</h3>
+    <p><strong>📧Email:</strong> Alaska.airline@Gmail.com</p>
+    <p><strong>📞Phone:</strong> +98-9658458756</p>
+    <p><strong>Timings:</strong> 9:00 AM - 6:00 PM (Mon-Fri)</p>
+    <button onclick="closeHelp()" style="margin-top: 20px; padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">Close</button>
+  </div>
+</div>
+
+<!-- Overlay for Modal -->
+<div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="closeHelp()"></div>
+
+<script>
+  // Function to show the help modal
+  function showHelp() {
+    document.getElementById('helpModal').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+  }
+
+  // Function to close the help modal
+  function closeHelp() {
+    document.getElementById('helpModal').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+  }
+</script>
+
+</script>
+
+
+
+            <!-- Flight Form -->
+            <form id="flight-form" class="mb-4" style="display: none;">
+                <div class="mb-3">
+                    <label for="source" class="form-label">Source:</label>
+                    <input type="text" id="source" name="source" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="destination" class="form-label">Destination:</label>
+                    <input type="text" id="destination" name="destination" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="departure-date" class="form-label">Departure Date:</label>
+                    <input type="date" id="departure-date" name="departure-date" class="form-control" required>
+                </div>
+                <script>
+                    // Restrict departure date to current and future dates
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const today = new Date(); // Get today's date
+                        const yyyy = today.getFullYear();
+                        const mm = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+                        const dd = String(today.getDate()).padStart(2, '0');
+                
+                        const minDate = `${yyyy}-${mm}-${dd}`; // Format: YYYY-MM-DD
+
+                         // Calculate max date (2 months from today)
+        const futureDate = new Date(today);
+        futureDate.setMonth(futureDate.getMonth() + 2); // Add 2 months
+        const maxYyyy = futureDate.getFullYear();
+        const maxMm = String(futureDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+        const maxDd = String(futureDate.getDate()).padStart(2, '0');
+        const maxDate = `${maxYyyy}-${maxMm}-${maxDd}`; // Format: YYYY-MM-DD
+                
+                        // Set the min attribute of the departure date input
+                        const departureDateInput = document.getElementById('departure-date');
+                        departureDateInput.setAttribute('min', minDate);
+                        departureDateInput.setAttribute('max', maxDate);
+                    });
+                </script>
+                <div class="mb-3">
+                    <label for="passenger-name" class="form-label">Passenger Name:</label>
+                    <input type="text" id="passenger-name" name="passenger-name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="passenger-email" class="form-label">Passenger Email:</label>
+                    <input type="email" id="passenger-email" name="passenger-email" class="form-control" required>
+                </div>
+                <button type="submit" id="book-ticket-btn" class="btn btn-primary btn-lg">Book Ticket</button>
+            </form>
+
+            <!-- Available Flights Section -->
+            <section id="available-flights" class="mb-4" style="display: none;">
+                <h2>Available Flights</h2>
+                <ul id="flights-list" class="list-group"></ul>
+            </section>
+            <div id="error-message" style="display:none; color:red;"></div>
+
+            
+            <section id="payment-section" class="mb-4" style="display: none;">
+                <h2>Payment</h2>
+                <form id="payment-form">
+                    <div class="mb-3">
+                        <label for="card-number" class="form-label">Card Number:</label>
+                        <input type="text" id="card-number" name="card-number" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="expiry-date" class="form-label">Expiry Date:</label>
+                        <input type="text" id="expiry-date" name="expiry-date" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cvv" class="form-label">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-charming">Make Payment</button>
+                </form>
+            </section> 
+            <!-- Confirmation Section -->
+            <section id="confirmation-section" class="mb-4" style="display: none;">
+                <h2>Booking Confirmation</h2>
+                <p>Your ticket has been booked successfully!</p>
+
+                <!-- ✅ Add this div to show PDF download link -->
+            <!-- Placeholder for the PDF download link -->
+            <div id="pdf-download-link" style="margin-top: 15px;">PDF download link will appear here.</div>
+            </section>
+
+            <!-- Check-In Form -->
+            <form id="check-in-form" class="mb-4" style="display: none;">
+                <h2>Check In</h2>
+                <div class="mb-3">
+                    <label for="checkin-name" class="form-label">Name:</label>
+                    <input type="text" id="checkin-name" name="checkin-name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="checkin-email" class="form-label">Email:</label>
+                    <input type="email" id="checkin-email" name="checkin-email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone-number" class="form-label">Phone Number:</label>
+                    <input type="tel" id="phone-number" name="phone-number" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="checkin-address" class="form-label">Address:</label>
+                    <input type="text" id="checkin-address" name="checkin-address" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="luggage-weight" class="form-label">Luggage Weight (kg):</label>
+                    <input type="number" id="luggage-weight" name="luggage-weight" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-charming">Check In</button>
+            </form>
+
+            <!-- Flight Status Section -->
+            <section id="flight-status-section" class="mb-4" style="display: none;">
+                <h2>Flight Status</h2>
+                <form id="flight-status-form">
+                    <div class="mb-3">
+                        <label for="status-flight-number" class="form-label">Flight Number:</label>
+                        <input type="text" id="status-flight-number" name="status-flight-number" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-charming">Check Status</button>
+                </form>
+                <div id="flight-status-result"></div>
+            </section>
+
+            <!-- Action Buttons -->
+            <div class="d-flex justify-content-between mb-4">
+                <button id="check-flight-status-btn" class="btn btn-charming" style="display: none;">Check Flight Status</button>
+                <button id="check-in-btn" class="btn btn-charming" style="display: none;">Check In</button>
+            </div>
+
+            <!-- Destinations Section -->
+<!-- Destinations Section -->
+<div class="destination-slider mb-4" id="popular-destinations">
+    <div class="destination-slide active">
+        <img src="https://images.unsplash.com/photo-1561400930-ab18eb910ee5?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Patna">
+        <div class="destination-info text-center">
+            <p>Flights to Patna</p>
+            <button class="btn btn-charming book-now-btn">Book Now</button>
+        </div>
+    </div>
+    <div class="destination-slide">
+        <img src="https://plus.unsplash.com/premium_photo-1661919589683-f11880119fb7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Delhi">
+        <div class="destination-info text-center">
+            <p>Flights to Delhi</p>
+            <button class="btn btn-charming book-now-btn">Book Now</button>
+        </div>
+    </div>
+    <div class="destination-slide">
+        <img src="https://plus.unsplash.com/premium_photo-1697730411634-5313371ad8fe?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Goa">
+        <div class="destination-info text-center">
+            <p>Flights to Goa</p>
+            <button class="btn btn-charming book-now-btn">Book Now</button>
+        </div>
+    </div>
+    <div class="destination-slide">
+        <img src="https://images.unsplash.com/photo-1521216774850-01bc1c5fe0da?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mexico">
+        <div class="destination-info text-center">
+            <p>Flights to Mexico</p>
+            <button class="btn btn-charming book-now-btn">Book Now</button>
+        </div>
+    </div>
+    <div class="destination-slide">
+        <img src="https://images.unsplash.com/photo-1605833556294-ea5c7a74f57d?q=80&w=1474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Las Vegas">
+        <div class="destination-info text-center">
+            <p>Flights to Las Vegas</p>
+            <button class="btn btn-charming book-now-btn">Book Now</button>
+        </div>
+    </div>
+</div>
+</div>
+</main>
+
+
+
+
+   <!-- Footer Section -->
+<footer style="background-color: #001f3f; padding: 0.75rem 0; color: white; text-align: center;">
+    <div class="container">
+        <p style="margin: 0;">&copy; 2025 Alaska Airlines, Inc. All rights reserved.</p>
+    </div>
+</footer>
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.destination-slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 4000);
+    </script>
+
+    
+
+</body>
+</html>
