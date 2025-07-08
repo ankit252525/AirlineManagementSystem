@@ -14,26 +14,17 @@ Built to simulate real-world airline services such as user registration, ticket 
 - 💳 Payment Form
 - 📸 Dynamic Destination Slider
 - 📞 Contact modal & Help Popup
-- 🎨 Fully styled using Bootstrap 5 and custom CSS
+- 🎨 Fully styled using Bootstrap and custom CSS
 - 📁 Modular JavaScript for interactivity
 
 ---
 
 ## 🛠️ Technologies Used
 
-- HTML5  
-- CSS3  
-- Bootstrap 5  
-- JavaScript (Vanilla)  
-- Python Flask (for backend, optional integration)  
-- MySQL (for data persistence – if backend connected)
+- HTML
+- CSS
+- Bootstrap   
+- JavaScript   
+- Node.js (for backend,integration)  
+- MySQL Workbench (for data persistence )
 
----
-
-## 💻 How to Run Locally
-
-1. Clone this repo:
-
-```bash
-git clone https://github.com/ankit252525/AirlineManagementSystem.git
-cd AirlineManagementSystem
